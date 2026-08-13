@@ -22,13 +22,13 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - name: Restore
-        run: dotnet restore ./VBImGuiDx9.slnx
+      - name: Restore library
+        run: dotnet restore ./VBImGuiDx9.vbproj
 
-      - name: Build
-        run: dotnet build ./VBImGuiDx9.slnx -c Release --no-restore
+      - name: Build library
+        run: dotnet build ./VBImGuiDx9.vbproj -c Release --no-restore
 
-      - name: Pack
+      - name: Pack NuGet package
         run: dotnet pack ./VBImGuiDx9.vbproj -c Release --no-restore -o ./artifacts
 
       - name: NuGet login (OIDC)
