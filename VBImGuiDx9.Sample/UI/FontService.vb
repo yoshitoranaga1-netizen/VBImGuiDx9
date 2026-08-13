@@ -126,7 +126,7 @@ Namespace VBImGuiDx9.Sample.UI
         End Property
 
         ''' <summary>
-        ''' Initializes all bundled TTF fonts.
+        ''' Initializes all TTF fonts discovered in the application font directory.
         ''' </summary>
         Public Sub Initialize()
 
