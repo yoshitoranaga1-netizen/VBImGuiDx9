@@ -1,0 +1,78 @@
+root = true
+
+# ==========================================================
+# Global
+# ==========================================================
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# ==========================================================
+# Visual Basic
+# ==========================================================
+
+[*.vb]
+
+indent_style = space
+indent_size = 4
+tab_width = 4
+
+visual_basic_preferred_modifier_order = Public,Protected,Friend,Private,MustOverride,NotOverridable,Overridable,Shared,Overrides,ReadOnly,WriteOnly,Const,Default,MustInherit,NotInheritable,Partial
+
+visual_basic_preferred_accessibility_modifiers = true:suggestion
+
+dotnet_sort_system_directives_first = true
+
+dotnet_separate_import_directive_groups = true
+
+# Qualification
+
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+
+# Braces / formatting
+
+dotnet_style_require_accessibility_modifiers = always:suggestion
+
+# ==========================================================
+# XML Documentation
+# ==========================================================
+
+dotnet_diagnostic.CS1591.severity = none
+
+# ==========================================================
+# Naming
+# ==========================================================
+
+dotnet_naming_rule.interfaces_should_begin_with_i.severity = warning
+dotnet_naming_rule.interfaces_should_begin_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_should_begin_with_i.style = begins_with_i
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+# ==========================================================
+# Analyzer
+# ==========================================================
+
+dotnet_analyzer_diagnostic.category-Performance.severity = warning
+dotnet_analyzer_diagnostic.category-Reliability.severity = warning
+dotnet_analyzer_diagnostic.category-Style.severity = suggestion
+dotnet_analyzer_diagnostic.category-Usage.severity = warning
+
+# ==========================================================
+# Files
+# ==========================================================
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.sln]
+indent_style = tab

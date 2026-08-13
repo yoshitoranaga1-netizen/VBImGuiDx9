@@ -1,0 +1,164 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+  
+	<RepositoryType>git</RepositoryType>
+	<RepositoryUrl>https://github.com/yoshitoranaga1-netizen/VBImGuiDx9</RepositoryUrl>
+
+    <!-- ========================================================= -->
+    <!-- Framework                                                  -->
+    <!-- ========================================================= -->
+
+    <TargetFramework>net9.0</TargetFramework>
+
+    <!-- ========================================================= -->
+    <!-- Project                                                    -->
+    <!-- ========================================================= -->
+
+    <RootNamespace>VBImGuiDx9</RootNamespace>
+    <AssemblyName>VBImGuiDx9</AssemblyName>
+
+    <!-- ========================================================= -->
+    <!-- Compiler                                                   -->
+    <!-- ========================================================= -->
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionInfer>On</OptionInfer>
+
+    <!-- ========================================================= -->
+    <!-- NuGet                                                      -->
+    <!-- ========================================================= -->
+
+    <IsPackable>true</IsPackable>
+
+    <PackageId>VBImGuiDx9</PackageId>
+
+    <Version>0.1.0</Version>
+
+    <Description>
+      VB.NET library for building Dear ImGui user interfaces with a Direct3D9 backend.
+    </Description>
+
+    <Authors>VBImGuiDx9 Contributors</Authors>
+
+    <PackageTags>
+      ImGui;ImGui.NET;Direct3D9;DirectX9;Vortice;VB.NET;UI;GUI
+    </PackageTags>
+
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- ========================================================= -->
+    <!-- Repository                                                 -->
+    <!-- ========================================================= -->
+
+    <RepositoryType>git</RepositoryType>
+
+    <!-- RepositoryUrl will be added after the GitHub repository
+         URL is finalized. -->
+
+    <!-- ========================================================= -->
+    <!-- Documentation                                              -->
+    <!-- ========================================================= -->
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- ========================================================= -->
+    <!-- Packaging                                                  -->
+    <!-- ========================================================= -->
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- ========================================================= -->
+    <!-- Native helper assembly                                     -->
+    <!-- ========================================================= -->
+
+    <TargetsForTfmSpecificBuildOutput>
+      $(TargetsForTfmSpecificBuildOutput);
+      IncludeNativeHelperAssembly
+    </TargetsForTfmSpecificBuildOutput>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="VBImGuiDx9.Native\**" />
+    <Compile Remove="VBImGuiDx9.Sample\**" />
+    <EmbeddedResource Remove="VBImGuiDx9.Native\**" />
+    <EmbeddedResource Remove="VBImGuiDx9.Sample\**" />
+    <None Remove="VBImGuiDx9.Native\**" />
+    <None Remove="VBImGuiDx9.Sample\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Sample\Assets\Fonts\Inter.ttf" />
+    <None Remove="Sample\Assets\Fonts\Roboto.ttf" />
+    <None Remove="Sample\Assets\Fonts\Segoe UI.ttf" />
+  </ItemGroup>
+
+
+  <!-- =========================================================== -->
+  <!-- Dependencies                                                -->
+  <!-- =========================================================== -->
+
+  <ItemGroup>
+
+    <PackageReference Include="ImGui.NET" Version="1.91.6.1" />
+
+    <PackageReference Include="Vortice.Direct3D9" Version="3.8.3" />
+
+    <PackageReference Include="Vortice.Mathematics" Version="2.1.1" />
+
+  </ItemGroup>
+
+
+  <!-- =========================================================== -->
+  <!-- Native helper project                                       -->
+  <!-- =========================================================== -->
+
+  <ItemGroup>
+
+    <ProjectReference Include="VBImGuiDx9.Native\VBImGuiDx9.Native.csproj" PrivateAssets="all" />
+
+  </ItemGroup>
+
+
+  <!-- =========================================================== -->
+  <!-- Package README                                               -->
+  <!-- =========================================================== -->
+
+  <ItemGroup>
+
+    <None Include="README.md" Pack="true" PackagePath="\" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Sample\Assets\Fonts\" />
+  </ItemGroup>
+  
+
+  <!-- =========================================================== -->
+  <!-- Include VBImGuiDx9.Native.dll inside the main package       -->
+  <!-- =========================================================== -->
+
+  <Target Name="IncludeNativeHelperAssembly" DependsOnTargets="ResolveReferences">
+
+    <ItemGroup>
+
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths)" Condition="'%(ReferenceCopyLocalPaths.Filename)' == 'VBImGuiDx9.Native'">
+      </BuildOutputInPackage>
+
+    </ItemGroup>
+
+  </Target>
+
+</Project>

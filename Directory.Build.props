@@ -1,0 +1,71 @@
+<Project>
+
+  <PropertyGroup>
+
+    <!-- ========================================================= -->
+    <!-- Common .NET settings                                      -->
+    <!-- ========================================================= -->
+
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <!-- ========================================================= -->
+    <!-- VB Compiler                                               -->
+    <!-- ========================================================= -->
+
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionInfer>On</OptionInfer>
+    <OptionCompare>Binary</OptionCompare>
+
+    <!-- ========================================================= -->
+    <!-- Build                                                     -->
+    <!-- ========================================================= -->
+
+    <Deterministic>true</Deterministic>
+
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">
+      true
+    </ContinuousIntegrationBuild>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+
+    <!-- ========================================================= -->
+    <!-- Assembly                                                  -->
+    <!-- ========================================================= -->
+
+    <Company>VBImGuiDx9 Project</Company>
+
+    <Authors>VBImGuiDx9 Contributors</Authors>
+
+    <Product>VBImGuiDx9</Product>
+
+    <Copyright>Copyright © VBImGuiDx9</Copyright>
+
+    <RepositoryType>git</RepositoryType>
+
+    <!-- ========================================================= -->
+    <!-- Packaging                                                 -->
+    <!-- ========================================================= -->
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <IncludeSymbols>true</IncludeSymbols>
+
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- ========================================================= -->
+    <!-- Documentation                                             -->
+    <!-- ========================================================= -->
+
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+
+  </PropertyGroup>
+
+</Project>

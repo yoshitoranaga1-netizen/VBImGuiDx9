@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="VBImGuiDx9.Native/VBImGuiDx9.Native.csproj" Id="1a96d262-da93-427e-9077-1a216ffda4a7" />
+  <Project Path="VBImGuiDx9.Sample/VBImGuiDx9.Sample.vbproj" Id="39a8a529-573b-45bc-8bb1-ae7458865f4d" />
+  <Project Path="VBImGuiDx9.vbproj">
+    <Platform Solution="Release|x64" Project="x64" />
+  </Project>
+</Solution>
+
